@@ -9,11 +9,11 @@ import static org.openqa.selenium.devtools.v116.network.Network.clearBrowserCook
 
 public class TextBoxPage {
     SelenideElement
-        chooseCatalogy = $("#rubrics-toggle"),
-        chooseKindCategory1 = $("[data-idx='2']"),
-        chooseTypeGoods1 = $("[title='Кроссовки и кеды']"),
-        chooseGoods1 = $("[title='Nike Air Max 1 Corduroy Baltic Blue']"),
-        chooseSizeSnikers1 = $("[title='Размер (EU/US): 37.5']"),
+        selectCatalogy = $("#rubrics-toggle"),
+        selectCategory1 = $("[data-idx='0']"), //Мужчины
+        selectItem1 = $("div .rubrics-items-grid").$(".product-listing-card", 3), //выбор товара
+        selectItemSize1 = $("[data-selector='options-group:root']")
+                .$(".options-group__list").$(".options-group__list-item", 2), //размер
         addToBasket = $("[title='Добавить в корзину']"),
         openBasker = $("[data-selector='basket-desktop']"),
         chooseKindGoods2 = $("[title='Женщинам']"),
@@ -31,24 +31,20 @@ public class TextBoxPage {
         return this;
     }
 
-    public TextBoxPage selectCatalogy() {
-        chooseCatalogy.click();
+    public TextBoxPage getCatalogy() {
+        selectCatalogy.click();
         return this;
     }
-    public TextBoxPage selectKindCategory() {
-        chooseKindCategory1.hover();
+    public TextBoxPage getCategory1() {
+        selectCategory1.click();
         return this;
     }
-    public TextBoxPage selectTypeGoods1() {
-        chooseTypeGoods1.click();
+    public TextBoxPage getItem1() {
+        selectItem1.click();
         return this;
     }
-    public TextBoxPage selectGoods1() {
-        chooseGoods1.click();
-        return this;
-    }
-    public TextBoxPage selectSizeSnikers1() {
-        chooseSizeSnikers1.click();
+    public TextBoxPage getSizeItem1() {
+        selectItemSize1.click();
         return this;
     }
     public TextBoxPage addGoodsToBasket() {

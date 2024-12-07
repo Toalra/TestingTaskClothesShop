@@ -24,28 +24,28 @@ public class AddGoodsToBasketPageObject extends TestBase{
     void setAddSnikers() {
         step("Добавление через каталог 1-го товара в корзину", () -> {
             addItem
-                    .selectCatalogy()
-                    .selectKindCategory()
-                    .selectTypeGoods1()
-                    .selectGoods1()
-                    .selectSizeSnikers1()
+                    .getCatalogy()
+                    .getCategory1()
+                    .getItem1()
+                    .getSizeItem1()
                     .addGoodsToBasket();
         });
-        step("Добавление через каталог 2-го товара в корзину", () -> {
-            addItem
-                    .selectCatalogy()
-                    .selectKindGategory2()
-                    .selectTypeGoods2()
-                    .selectGoods2()
-                    .selectSizeJacket()
-                    .addGoodsToBasket();
-        });
-        step("Добавление через каталог 3-го товара в корзину", () -> {
-            addItem.selectCatalogy()
-                    .selectKindCategory3()
-                    .selectTypeGoods3()
-                    .selectGoods3()
-                    .addGoodsToBasket();
-        });
+
+//        step("Добавление через каталог 2-го товара в корзину", () -> {
+//            addItem
+//                    .selectCatalogy()
+//                    .selectKindGategory2()
+//                    .selectTypeGoods2()
+//                    .selectGoods2()
+//                    .selectSizeJacket()
+//                    .addGoodsToBasket();
+//        });
+//        step("Добавление через каталог 3-го товара в корзину", () -> {
+//            addItem.selectCatalogy()
+//                    .selectKindCategory3()
+//                    .selectTypeGoods3()
+//                    .selectGoods3()
+//                    .addGoodsToBasket();
+//        });
     }
 }
