@@ -5,6 +5,7 @@ import org.junit.jupiter.api.DisplayName;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
+import static org.openqa.selenium.devtools.v116.network.Network.clearBrowserCookies;
 
 public class TextBoxPage {
     SelenideElement
@@ -26,6 +27,7 @@ public class TextBoxPage {
     @DisplayName("Выборка товаров")
     public TextBoxPage openWebSite() {
         open("/");
+        clearBrowserCookies();
         return this;
     }
 

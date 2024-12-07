@@ -11,6 +11,7 @@ public class AddGoodsToBasketPageObject extends TestBase{
     TextBoxPage addItem = new TextBoxPage();
 
 
+    @DisplayName("Открытие Web-сайта")
     @Test
     void openWeb() {
         step("Открытие сайта", () -> {
