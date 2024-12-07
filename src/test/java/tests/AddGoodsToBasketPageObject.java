@@ -9,24 +9,28 @@ import static com.codeborne.selenide.logevents.SelenideLogger.step;
 public class AddGoodsToBasketPageObject extends TestBase{
     TextBoxPage openWebPage = new TextBoxPage();
     TextBoxPage addSnikers = new TextBoxPage();
+    TextBoxPage addJacket = new TextBoxPage();
 
 
     @Test
     void openWeb() {
         step("Открытие сайта", () -> {
-            openWebPage()
+            openWebPage.openWebSite();
         });
     }
-    @DisplayName("Добавление 1-го товара в корзину")
+    @DisplayName("Добавление товаров в корзину")
     @Test
     void setAddSnikers() {
         step("Открытие каталога с 1-ым товаром и добавление в корзину", () -> {
             addSnikers.selectCatalogy()
                     .selectKindCategory()
                     .selectTypeGoods1()
-                    .selectGoods1()
                     .selectSizeSnikers1()
                     .addGoodsToBasket();
+        });
+        step("Открытие каталога с 2-ым товаром и добавление в корзину", () -> {
+            addJacket.selectCatalogy()
+                    .
         });
     }
 
