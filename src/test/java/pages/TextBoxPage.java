@@ -9,8 +9,8 @@ import static org.openqa.selenium.devtools.v116.network.Network.clearBrowserCook
 
 public class TextBoxPage {
     SelenideElement
-        chooseCatalogy = $("[data-selector='header-rubrics-toggler-desktop']"),
-        chooseKindCategory1 = $("[title='Обувь']"),
+        chooseCatalogy = $("#rubrics-toggle"),
+        chooseKindCategory1 = $("[data-idx='2']"),
         chooseTypeGoods1 = $("[title='Кроссовки и кеды']"),
         chooseGoods1 = $("[title='Nike Air Max 1 Corduroy Baltic Blue']"),
         chooseSizeSnikers1 = $("[title='Размер (EU/US): 37.5']"),
