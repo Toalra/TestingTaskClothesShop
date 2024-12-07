@@ -24,9 +24,8 @@ public class TextBoxPage {
                 .$(".options-group__list").$(".options-group__list-item", 1), //размер,
 
     //3 товар
-        chooseKindCategory3 = $("[title='Аксессуары']"),
-        chooseTypeGoods3 = $("[title='Наручные часы']"),
-        getGoods3 = $("[title='Хэмптон AX2104']"),
+        selectCategory3 = $("[data-idx='4']"), //Аксессуары
+        selectItem3 = $("div .rubrics-items-grid").$(".product-listing-card", 2), //выбор товара
         openBasket = $("[data-selector='basket-desktop']");
 
     @DisplayName("Выборка товаров")
@@ -74,16 +73,12 @@ public class TextBoxPage {
     }
 
     //3 товар
-    public TextBoxPage selectKindCategory3() {
-        chooseKindCategory3.hover();
+    public TextBoxPage getCategory3() {
+        selectCategory3.click();
         return this;
     }
-    public TextBoxPage selectTypeGoods3() {
-        chooseTypeGoods3.click();
-        return this;
-    }
-    public TextBoxPage selectGoods3() {
-        getGoods3.click();
+    public TextBoxPage getItem3() {
+        selectItem3.click();
         return this;
     }
 

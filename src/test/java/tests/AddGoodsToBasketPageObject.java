@@ -39,12 +39,12 @@ public class AddGoodsToBasketPageObject extends TestBase{
                     .getSizeItem2()
                     .addItemToBasket();
         });
-//        step("Добавление через каталог 3-го товара в корзину", () -> {
-//            addItem.selectCatalogy()
-//                    .selectKindCategory3()
-//                    .selectTypeGoods3()
-//                    .selectGoods3()
-//                    .addGoodsToBasket();
-//        });
+        step("Добавление через каталог 3-го товара в корзину", () -> {
+            addItem
+                    .getCatalogy()
+                    .getCategory3()
+                    .getItem3()
+                    .addItemToBasket();
+        });
     }
 }
