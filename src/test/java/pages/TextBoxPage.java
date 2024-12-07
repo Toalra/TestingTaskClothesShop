@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selenide.open;
 public class TextBoxPage {
     SelenideElement
         chooseCatalogy = $("[data-selector='header-rubrics-toggler-desktop']"),
-        chooseKindCategory = $("[title='Обувь']"),
+        chooseKindCategory1 = $("[title='Обувь']"),
         chooseTypeGoods1 = $("[title='Кроссовки и кеды']"),
         chooseGoods1 = $("[title='Nike Air Max 1 Corduroy Baltic Blue']"),
         chooseSizeSnikers1 = $("[title='Размер (EU/US): 37.5']"),
@@ -18,7 +18,9 @@ public class TextBoxPage {
         chooseKindGoods2 = $("[title='Женщинам']"),
         chooseTypeGoods2 = $("[title='Куртки']"),
         chooseGoods2 = $("[title='Adidas Parka Coats Men']"),
-        chooseSizeJacket = $("[title='Размер: XL']");
+        chooseSizeJacket = $("[title='Размер: XL']"),
+        chooseKindCategory3 = $("[title='Аксессуары']"),
+        chooseTypeGoods3 = $("[title='Наручные часы']");
 
     @DisplayName("Выборка товаров")
     public TextBoxPage openWebSite() {
@@ -31,7 +33,7 @@ public class TextBoxPage {
         return this;
     }
     public TextBoxPage selectKindCategory() {
-        chooseKindCategory.click();
+        chooseSizeSnikers1.click();
         return this;
     }
     public TextBoxPage selectTypeGoods1() {
@@ -67,7 +69,7 @@ public class TextBoxPage {
         return this;
     }
 
-    @DisplayName("Открываем корзину")
+    @DisplayName("Открываем корзину с нашими товарами")
     public TextBoxPage openBasketWithOurGoods() {
         openBasker.click();
         return this;
