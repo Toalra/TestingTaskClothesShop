@@ -28,6 +28,8 @@ public class TextBoxPage {
         selectItem3 = $("div .rubrics-items-grid").$(".product-listing-card", 2), //выбор товара
         openBasket = $("[data-selector='basket-desktop']");
 
+    //Проверки
+
     @DisplayName("Выборка товаров")
     public TextBoxPage openWebSite() {
         open("/");
