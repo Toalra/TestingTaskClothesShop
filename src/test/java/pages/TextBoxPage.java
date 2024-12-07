@@ -20,7 +20,8 @@ public class TextBoxPage {
         chooseGoods2 = $("[title='Adidas Parka Coats Men']"),
         chooseSizeJacket = $("[title='Размер: XL']"),
         chooseKindCategory3 = $("[title='Аксессуары']"),
-        chooseTypeGoods3 = $("[title='Наручные часы']");
+        chooseTypeGoods3 = $("[title='Наручные часы']"),
+        choosGoods3 = $("[title='Хэмптон AX2104']");
 
     @DisplayName("Выборка товаров")
     public TextBoxPage openWebSite() {
@@ -33,7 +34,7 @@ public class TextBoxPage {
         return this;
     }
     public TextBoxPage selectKindCategory() {
-        chooseSizeSnikers1.click();
+        chooseKindCategory1.hover();
         return this;
     }
     public TextBoxPage selectTypeGoods1() {
@@ -53,7 +54,7 @@ public class TextBoxPage {
         return this;
     }
     public TextBoxPage selectKindGategory2() {
-        chooseKindGoods2.click();
+        chooseKindGoods2.hover();
         return this;
     }
     public TextBoxPage selectTypeGoods2() {
@@ -66,6 +67,18 @@ public class TextBoxPage {
     }
     public TextBoxPage selectSizeJacket() {
         chooseSizeJacket.click();
+        return this;
+    }
+    public TextBoxPage selectKindCategory3() {
+        chooseKindCategory3.hover();
+        return this;
+    }
+    public TextBoxPage selectTypeGoods3() {
+        chooseTypeGoods3.click();
+        return this;
+    }
+    public TextBoxPage selectGoods3() {
+        choosGoods3.click();
         return this;
     }
 

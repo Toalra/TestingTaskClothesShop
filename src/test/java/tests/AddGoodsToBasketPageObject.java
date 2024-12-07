@@ -14,31 +14,37 @@ public class AddGoodsToBasketPageObject extends TestBase{
     @Test
     void openWeb() {
         step("Открытие сайта", () -> {
-            openWebPage.openWebSite();
+            openWebPage
+                    .openWebSite();
         });
     }
     @DisplayName("Добавление товаров в корзину")
     @Test
     void setAddSnikers() {
-        step("Открытие каталога с 1-ым товаром и добавление в корзину", () -> {
-            addItem.selectCatalogy()
+        step("Добавление через каталог 1-го товара в корзину", () -> {
+            addItem
+                    .selectCatalogy()
                     .selectKindCategory()
-                    //.selectTypeGoods1()
+                    .selectTypeGoods1()
                     .selectGoods1()
                     .selectSizeSnikers1()
                     .addGoodsToBasket();
         });
-        step("Открытие каталога с 2-ым товаром и добавление в корзину", () -> {
-            addItem.selectCatalogy()
+        step("Добавление через каталог 2-го товара в корзину", () -> {
+            addItem
+                    .selectCatalogy()
                     .selectKindGategory2()
                     .selectTypeGoods2()
                     .selectGoods2()
                     .selectSizeJacket()
                     .addGoodsToBasket();
         });
-        step("Открытие каталога с 3-им товаром и добавление в корзину", () -> {
-            addItem.selectCatalogy();
+        step("Добавление через каталог 3-го товара в корзину", () -> {
+            addItem.selectCatalogy()
+                    .selectKindCategory3()
+                    .selectTypeGoods3()
+                    .selectGoods3()
+                    .addGoodsToBasket();
         });
     }
-
 }
