@@ -28,18 +28,17 @@ public class AddGoodsToBasketPageObject extends TestBase{
                     .getCategory1()
                     .getItem1()
                     .getSizeItem1()
-                    .addGoodsToBasket();
+                    .addItemToBasket();
         });
 
-//        step("Добавление через каталог 2-го товара в корзину", () -> {
-//            addItem
-//                    .selectCatalogy()
-//                    .selectKindGategory2()
-//                    .selectTypeGoods2()
-//                    .selectGoods2()
-//                    .selectSizeJacket()
-//                    .addGoodsToBasket();
-//        });
+        step("Добавление через каталог 2-го товара в корзину", () -> {
+            addItem
+                    .getCatalogy()
+                    .getGategory2()
+                    .getItem2()
+                    .getSizeItem2()
+                    .addItemToBasket();
+        });
 //        step("Добавление через каталог 3-го товара в корзину", () -> {
 //            addItem.selectCatalogy()
 //                    .selectKindCategory3()

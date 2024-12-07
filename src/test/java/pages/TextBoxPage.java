@@ -10,19 +10,24 @@ import static org.openqa.selenium.devtools.v116.network.Network.clearBrowserCook
 public class TextBoxPage {
     SelenideElement
         selectCatalogy = $("#rubrics-toggle"),
+    //1 товар
         selectCategory1 = $("[data-idx='0']"), //Мужчины
         selectItem1 = $("div .rubrics-items-grid").$(".product-listing-card", 3), //выбор товара
-        selectItemSize1 = $("[data-selector='options-group:root']")
+        selectSizeItem1 = $("[data-selector='options-group:root']")
                 .$(".options-group__list").$(".options-group__list-item", 2), //размер
         addToBasket = $("[title='Добавить в корзину']"),
-        openBasker = $("[data-selector='basket-desktop']"),
-        chooseKindGoods2 = $("[title='Женщинам']"),
-        chooseTypeGoods2 = $("[title='Куртки']"),
-        chooseGoods2 = $("[title='Adidas Parka Coats Men']"),
-        chooseSizeJacket = $("[title='Размер: XL']"),
+
+    //2 товар
+        selectCategory2 = $("[data-idx='1']"), //Женщины
+        selectItem2 = $("div .rubrics-items-grid").$(".product-listing-card", 2), //выбор товара
+        selectSizeItem2 = $("[data-selector='options-group:root']")
+                .$(".options-group__list").$(".options-group__list-item", 1), //размер,
+
+    //3 товар
         chooseKindCategory3 = $("[title='Аксессуары']"),
         chooseTypeGoods3 = $("[title='Наручные часы']"),
-        choosGoods3 = $("[title='Хэмптон AX2104']");
+        getGoods3 = $("[title='Хэмптон AX2104']"),
+        openBasket = $("[data-selector='basket-desktop']");
 
     @DisplayName("Выборка товаров")
     public TextBoxPage openWebSite() {
@@ -35,6 +40,8 @@ public class TextBoxPage {
         selectCatalogy.click();
         return this;
     }
+
+    //1 товар
     public TextBoxPage getCategory1() {
         selectCategory1.click();
         return this;
@@ -44,29 +51,29 @@ public class TextBoxPage {
         return this;
     }
     public TextBoxPage getSizeItem1() {
-        selectItemSize1.click();
+        selectSizeItem1.click();
         return this;
     }
-    public TextBoxPage addGoodsToBasket() {
+    public TextBoxPage addItemToBasket() {
         addToBasket.click();
         return this;
     }
-    public TextBoxPage selectKindGategory2() {
-        chooseKindGoods2.hover();
+
+    //2 товар
+    public TextBoxPage getGategory2() {
+        selectCategory2.click();
         return this;
     }
-    public TextBoxPage selectTypeGoods2() {
-        chooseTypeGoods2.click();
+    public TextBoxPage getItem2() {
+        selectItem2.click();
         return this;
     }
-    public TextBoxPage selectGoods2() {
-        chooseGoods2.click();
+    public TextBoxPage getSizeItem2() {
+        selectSizeItem2.click();
         return this;
     }
-    public TextBoxPage selectSizeJacket() {
-        chooseSizeJacket.click();
-        return this;
-    }
+
+    //3 товар
     public TextBoxPage selectKindCategory3() {
         chooseKindCategory3.hover();
         return this;
@@ -76,13 +83,13 @@ public class TextBoxPage {
         return this;
     }
     public TextBoxPage selectGoods3() {
-        choosGoods3.click();
+        getGoods3.click();
         return this;
     }
 
     @DisplayName("Открываем корзину с нашими товарами")
     public TextBoxPage openBasketWithOurGoods() {
-        openBasker.click();
+        openBasket.click();
         return this;
     }
 }
