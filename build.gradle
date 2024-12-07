@@ -9,9 +9,29 @@ repositories {
     mavenCentral()
 }
 
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
 dependencies {
-    testImplementation platform('org.junit:junit-bom:5.9.1')
-    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testImplementation (
+            "org.junit.jupiter:junit-jupiter:5.10.0",
+            "org.slf4j:slf4j-simple:2.0.8",
+            "io.github.bonigarcia:webdrivermanager:5.5.2",
+            "com.codeborne:selenide:6.19.0",
+            "com.github.javafaker:javafaker:1.0.2",
+            "org.testng:testng:7.7.1",
+            'org.aeonbits.owner:owner:1.0.4'
+    )
+}
+tasks.withType(Test) {
+    systemProperties(System.getProperties())
+    testLogging {
+        lifecycle {
+            events "started", "skipped", "failed", "standard_error", "standard_out"
+            exceptionFormat "short"
+        }
+    }
 }
 
 test {
