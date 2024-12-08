@@ -1,7 +1,5 @@
 package tests;
 
-import models.lombok.TitileItem1InBasketLombok;
-import models.lombok.TitleItems1Lombok;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import pages.TextBoxPage;
@@ -12,10 +10,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class AddItemsToBasketPageObject extends TestBase{
     TextBoxPage openWebPage = new TextBoxPage();
     TextBoxPage addItem = new TextBoxPage();
-    TextBoxPage itemsInBasket = new TextBoxPage();
-    TitleItems1Lombok titleNameItem1 = new TitleItems1Lombok();
-    TitileItem1InBasketLombok titleBasketNameItem1 = new TitileItem1InBasketLombok();
-
 
     @DisplayName("1. Открытие Web-сайта")
     @Test
@@ -35,12 +29,14 @@ public class AddItemsToBasketPageObject extends TestBase{
                     .getItem1()
                     .getSizeItem1()
                     .addItemToBasket()
-                    .openBasketWithOurGoods();
+                    .nameItem1()
+                    .openBasketWithOurGoods()
+                    .nameBasketItem1();
         });
         step("Проверка названия товара", () -> {
-            assertEquals(titleNameItem1.getNameItem1(), titleBasketNameItem1.getBasketNameItem1());
-            System.out.println(titleNameItem1.getNameItem1());
-            System.out.println(titleBasketNameItem1.getBasketNameItem1());
+            assertEquals(addItem.getItemName(), addItem.getBasketItemName());
+            System.out.println(addItem.getItemName());
+            System.out.println(addItem.getBasketItemName());
         });
 
 //        step("Добавление через каталог 2-го товара в корзину", () -> {
@@ -60,6 +56,7 @@ public class AddItemsToBasketPageObject extends TestBase{
 //        });
 
     }
+
 //    @DisplayName("3. Открытие корзины")
 //    @Test
 //    void test03() {

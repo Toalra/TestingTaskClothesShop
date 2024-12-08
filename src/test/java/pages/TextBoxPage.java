@@ -8,6 +8,8 @@ import static com.codeborne.selenide.Selenide.open;
 import static org.openqa.selenium.devtools.v116.network.Network.clearBrowserCookies;
 
 public class TextBoxPage {
+    String itemName;
+    String itemBasketName;
     SelenideElement
         catalogy = $(".container mega-burger__inner"),
         selectCatalogy = $("#rubrics-toggle"),
@@ -117,12 +119,20 @@ public class TextBoxPage {
         checkInBasketSizeItem1.getText();
         return this;
     }
-    public TextBoxPage nameItem1(String value) {
-        findTitleOfItem.getText();
+    @DisplayName("Парсинг название товара")
+    public TextBoxPage nameItem1() {
+        itemName = findTitleOfItem.getText();
         return this;
     }
-    public TextBoxPage nameBasketItem1(String value) {
-        checkTitleOfItem.getText();
+    public String getItemName() {
+        return itemName;
+    }
+    @DisplayName("Парсинг названия товара в корзине")
+    public TextBoxPage nameBasketItem1() {
+        itemBasketName = checkTitleOfItem.getText();
         return this;
+    }
+    public String getBasketItemName() {
+        return itemBasketName;
     }
 }
