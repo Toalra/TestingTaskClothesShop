@@ -31,13 +31,14 @@ public class TextBoxPage {
 
     //Проверки
 
-    @DisplayName("Выборка товаров")
+
     public TextBoxPage openWebSite() {
         open("/");
         clearBrowserCookies();
         return this;
     }
 
+    @DisplayName("Исключение, если каталог отобразился не сразу")
     public TextBoxPage getCatalogy() {
         if (!catalogy.exists()) {
             selectCatalogy.click();
