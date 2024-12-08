@@ -27,13 +27,14 @@ public class TextBoxPage {
     //3 товар
         selectCategory3 = $("[data-idx='4']"), //Аксессуары
         selectItem3 = $("div .rubrics-items-grid").$(".product-listing-card", 2), //выбор товара
-        openBasket = $("[data-selector='basket-desktop']");
+        openBasket = $("[data-selector='basket-desktop']"),
 
     //Проверки
-
+        checkCountItems = $(".toolbar-item__bage"),
+        checkCountItemsBasket = $(".basket-summary__btn-more").$(".js-more");
 
     public TextBoxPage openWebSite() {
-        open("/");
+        open("");
         clearBrowserCookies();
         return this;
     }
@@ -85,6 +86,16 @@ public class TextBoxPage {
     }
     public TextBoxPage getItem3() {
         selectItem3.click();
+        return this;
+    }
+
+    //Счетчик
+    public TextBoxPage countItems() {
+        checkCountItems.getText();
+        return this;
+    }
+    public TextBoxPage countItemsBasket() {
+        checkCountItemsBasket.getText();
         return this;
     }
 

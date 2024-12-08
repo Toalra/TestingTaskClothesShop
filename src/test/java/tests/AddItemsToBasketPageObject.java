@@ -5,23 +5,25 @@ import org.junit.jupiter.api.Test;
 import pages.TextBoxPage;
 
 import static com.codeborne.selenide.logevents.SelenideLogger.step;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class AddGoodsToBasketPageObject extends TestBase{
+public class AddItemsToBasketPageObject extends TestBase{
     TextBoxPage openWebPage = new TextBoxPage();
     TextBoxPage addItem = new TextBoxPage();
+    TextBoxPage itemsInBasket = new TextBoxPage();
 
 
-    @DisplayName("Открытие Web-сайта")
+    @DisplayName("1. Открытие Web-сайта")
     @Test
-    void openWeb() {
+    void test01() {
         step("Открытие сайта", () -> {
             openWebPage
                     .openWebSite();
         });
     }
-    @DisplayName("Добавление товаров в корзину")
+    @DisplayName("2. Добавление товаров в корзину")
     @Test
-    void setAddSnikers() {
+    void test02() {
         step("Добавление через каталог 1-го товара в корзину", () -> {
             addItem
                     .getCatalogy()
@@ -46,5 +48,22 @@ public class AddGoodsToBasketPageObject extends TestBase{
                     .getItem3()
                     .addItemToBasket();
         });
+
+    }
+    @DisplayName("3. Открытие корзины")
+    @Test
+    void test03() {
+        itemsInBasket.openBasketWithOurGoods();
+
+    }
+    @DisplayName("4. Проверки")
+    @Test
+    void test04() {
+    step("Проверка количества товара в корзине", () -> {
+        assertEquals(
+                itemsInBasket.countItems(),
+                itemsInBasket.countItemsBasket());
+    });
+
     }
 }
