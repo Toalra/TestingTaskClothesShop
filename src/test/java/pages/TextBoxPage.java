@@ -32,8 +32,10 @@ public class TextBoxPage {
     //Проверки
         checkCountItems = $(".toolbar-item__bage"),
         checkCountItemsBasket = $(".basket-summary__btn-more").$(".js-more"),
-        findTitleOfItem = $("#name"),
-        checkTitleOfItem = $(".basket__block-groups"),
+        findTitleOfItem = $("#name"), //название на товаре
+        checkTitleOfItem = $(".cart-item-default__title"), //название в корзине
+        sizeItem1 = $("[data-selector='options-group:root']")
+                    .$(".options-group__list").$(".options-group__list-item", 2),//размер в корзине
         checkInBasketSizeItem1 = $(".group-items__content")
                 .$(".cart-item-default", 0)
                 .$(".cart-item-default__area-content", 1)
@@ -111,16 +113,16 @@ public class TextBoxPage {
         checkCountItemsBasket.getText();
         return this;
     }
-    public TextBoxPage getTitleOfItems() {
+    public TextBoxPage checkSizeItem1() {
+        checkInBasketSizeItem1.getText();
+        return this;
+    }
+    public TextBoxPage nameItem1(String value) {
         findTitleOfItem.getText();
         return this;
     }
-    public TextBoxPage getTitleOfItemInBasket() {
+    public TextBoxPage nameBasketItem1(String value) {
         checkTitleOfItem.getText();
-        return this;
-    }
-    public TextBoxPage checkSizeItem1() {
-        checkInBasketSizeItem1.getText();
         return this;
     }
 }

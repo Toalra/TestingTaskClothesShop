@@ -23,6 +23,7 @@ dependencies {
             "org.testng:testng:7.7.1",
             'org.aeonbits.owner:owner:1.0.4'
     )
+    testImplementation 'org.projectlombok:lombok:1.18.28'
 }
 tasks.withType(Test) {
     systemProperties(System.getProperties())
