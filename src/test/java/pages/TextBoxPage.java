@@ -9,6 +9,7 @@ import static org.openqa.selenium.devtools.v116.network.Network.clearBrowserCook
 
 public class TextBoxPage {
     SelenideElement
+        catalogy = $(".container mega-burger__inner"),
         selectCatalogy = $("#rubrics-toggle"),
     //1 товар
         selectCategory1 = $("[data-idx='0']"), //Мужчины
@@ -38,7 +39,9 @@ public class TextBoxPage {
     }
 
     public TextBoxPage getCatalogy() {
-        selectCatalogy.click();
+        if (!catalogy.exists()) {
+            selectCatalogy.click();
+        }
         return this;
     }
 
