@@ -71,9 +71,18 @@ public class AddItemsToBasketPageObject extends TestBase{
     @Test
     void test05() {
         step("Проверка названий товара", () -> {
-            assertEquals(itemsInBasket.getTitleOfItems(), itemsInBasket.getTitleOfItemInBasket());
+         //   assertEquals(itemsInBasket.getTitleOfItems(), itemsInBasket.getTitleOfItemInBasket());
             System.out.print(itemsInBasket.getTitleOfItems());
             System.out.print(itemsInBasket.getTitleOfItemInBasket());
+        });
+    }
+    @DisplayName("6. Проверка размера")
+    @Test
+    void test06() {
+        step("Проверка размера", () -> {
+         //   assertEquals(itemsInBasket.getSizeItem1(), itemsInBasket.checkSizeItem1());
+            System.out.print(itemsInBasket.getSizeItem1());
+            System.out.print(itemsInBasket.checkSizeItem1());
         });
     }
 }

@@ -33,7 +33,13 @@ public class TextBoxPage {
         checkCountItems = $(".toolbar-item__bage"),
         checkCountItemsBasket = $(".basket-summary__btn-more").$(".js-more"),
         findTitleOfItem = $("#name"),
-        checkTitleOfItem = $(".basket__block-groups");
+        checkTitleOfItem = $(".basket__block-groups"),
+        checkInBasketSizeItem1 = $(".group-items__content")
+                .$(".cart-item-default", 0)
+                .$(".cart-item-default__area-content", 1)
+                .$(".cart-item-default__props", 0)
+                .$("li", 0),
+        checkInBasketSizeItem2 = $(".group-items__content");
 
     public TextBoxPage openWebSite() {
         open("");
@@ -111,6 +117,10 @@ public class TextBoxPage {
     }
     public TextBoxPage getTitleOfItemInBasket() {
         checkTitleOfItem.getText();
+        return this;
+    }
+    public TextBoxPage checkSizeItem1() {
+        checkInBasketSizeItem1.getText();
         return this;
     }
 }
