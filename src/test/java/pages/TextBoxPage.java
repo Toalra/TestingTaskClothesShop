@@ -38,7 +38,7 @@ public class TextBoxPage {
         return this;
     }
 
-    @DisplayName("Исключение, если каталог отобразился не сразу")
+    @DisplayName("Цикл, если каталог отобразился не сразу")
     public TextBoxPage getCatalogy() {
         if (!catalogy.exists()) {
             selectCatalogy.click();
