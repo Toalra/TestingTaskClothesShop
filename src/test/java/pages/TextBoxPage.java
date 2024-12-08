@@ -31,7 +31,9 @@ public class TextBoxPage {
 
     //Проверки
         checkCountItems = $(".toolbar-item__bage"),
-        checkCountItemsBasket = $(".basket-summary__btn-more").$(".js-more");
+        checkCountItemsBasket = $(".basket-summary__btn-more").$(".js-more"),
+        findTitleOfItem = $("#name"),
+        checkTitleOfItem = $(".basket__block-groups");
 
     public TextBoxPage openWebSite() {
         open("");
@@ -88,8 +90,13 @@ public class TextBoxPage {
         selectItem3.click();
         return this;
     }
+    @DisplayName("Открываем корзину с нашими товарами")
+    public TextBoxPage openBasketWithOurGoods() {
+        openBasket.click();
+        return this;
+    }
 
-    //Счетчик
+    //Проверки
     public TextBoxPage countItems() {
         checkCountItems.getText();
         return this;
@@ -98,10 +105,12 @@ public class TextBoxPage {
         checkCountItemsBasket.getText();
         return this;
     }
-
-    @DisplayName("Открываем корзину с нашими товарами")
-    public TextBoxPage openBasketWithOurGoods() {
-        openBasket.click();
+    public TextBoxPage getTitleOfItems() {
+        findTitleOfItem.getText();
+        return this;
+    }
+    public TextBoxPage getTitleOfItemInBasket() {
+        checkTitleOfItem.getText();
         return this;
     }
 }

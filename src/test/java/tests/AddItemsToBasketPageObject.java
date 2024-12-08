@@ -56,14 +56,24 @@ public class AddItemsToBasketPageObject extends TestBase{
         itemsInBasket.openBasketWithOurGoods();
 
     }
-    @DisplayName("4. Проверки")
+    @DisplayName("4. Проверка по кол-ву товара в корзине")
     @Test
     void test04() {
     step("Проверка количества товара в корзине", () -> {
         assertEquals(
                 itemsInBasket.countItems(),
                 itemsInBasket.countItemsBasket());
+        System.out.print(itemsInBasket.countItems());
+        System.out.print(itemsInBasket.countItemsBasket());
     });
-
+    }
+    @DisplayName("5. Проверка по названию")
+    @Test
+    void test05() {
+        step("Проверка названий товара", () -> {
+            assertEquals(itemsInBasket.getTitleOfItems(), itemsInBasket.getTitleOfItemInBasket());
+            System.out.print(itemsInBasket.getTitleOfItems());
+            System.out.print(itemsInBasket.getTitleOfItemInBasket());
+        });
     }
 }
