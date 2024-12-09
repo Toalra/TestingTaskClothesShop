@@ -140,6 +140,7 @@ public class TextBoxPage {
     @DisplayName("Парсинг названия 1-го товара в корзине")
     public TextBoxPage nameBasketItem1() {
         itemBasketName = checkTitleOfItem1.getText();
+        itemBasketName.equals(itemName);
         return this;
     }
     public String getBasketNameItem1() {

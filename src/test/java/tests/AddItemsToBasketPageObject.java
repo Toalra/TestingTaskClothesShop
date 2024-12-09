@@ -35,6 +35,7 @@ public class AddItemsToBasketPageObject extends TestBase{
                     .nameBasketItem1();
         });
         step("Проверка названия товаров", () -> {
+
             String itemName = addItem.getItemName();
             String basketItemName = addItem.getBasketNameItem1();
             assertTrue(basketItemName.contains(itemName));
