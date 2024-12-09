@@ -12,6 +12,8 @@ public class TextBoxPage {
     String itemBasketName;
     String item2BasketName;
     String item2Name;
+    String item3Name;
+    String item3BasketName;
     SelenideElement
         catalogy = $(".container mega-burger__inner"),
         selectCatalogy = $("#rubrics-toggle"),
@@ -52,7 +54,9 @@ public class TextBoxPage {
         checkTitleOfItem1 = $(".js-items").$(".cart-item-default", 0)
                 .$(".cart-item-default__title"), //название 1-го в корзине
         checkTitleOfItem2 = $(".js-items").$(".cart-item-default", 1)
-                    .$(".cart-item-default__title"); //название 2-го в корзине
+                    .$(".cart-item-default__title"), //название 2-го в корзине
+        checkTitleOfItem3 = $(".js-items").$(".cart-item-default", 2)
+                    .$(".cart-item-default__title");
 
 
     public TextBoxPage openWebSite() {
@@ -129,7 +133,7 @@ public class TextBoxPage {
         checkInBasketSizeItem1.getText();
         return this;
     }
-    @DisplayName("Парсинг название 1-го товара")
+    @DisplayName("Парсинг названия 1-го товара")
     public TextBoxPage nameItem1() {
         itemName = findTitleOfItem.getText();
         return this;
@@ -148,7 +152,7 @@ public class TextBoxPage {
     }
 
 
-    @DisplayName("Парсинг название 2-го товара")
+    @DisplayName("Парсинг названия 2-го товара")
     public TextBoxPage nameItem2() {
         item2Name = findTitleOfItem.getText();
         return this;
@@ -165,5 +169,26 @@ public class TextBoxPage {
     public String getBasketNameItem2() {
         return item2BasketName;
     }
+
+
+    @DisplayName("Парсинг названия 3-го товара")
+    public TextBoxPage nameItem3() {
+        item3Name = findTitleOfItem.getText();
+        return this;
+    }
+    public String getItem3Name() {
+        return item3Name;
+    }
+
+    @DisplayName("Парсинг названия 3-го товара из корзины")
+    public TextBoxPage nameBasketItem3() {
+        item3BasketName = checkTitleOfItem3.getText();
+        item3BasketName.equals(item3Name);
+        return this;
+    }
+    public String getBasketNameItem3() {
+        return item3BasketName;
+    }
+
 
 }

@@ -72,23 +72,30 @@ public class AddItemsToBasketPageObject extends TestBase{
     }
 
 
-//    @DisplayName("3. Открытие корзины")
-//    @Test
-//    void test03() {
-//        step("Открытие корзины", () -> {
-//            addItem.openBasketWithOurGoods()
-//                    .nameBasketItem1();
-//        });
-//        step("Проверка названия товаров", () -> {
-//            String itemName = addItem.getItemName();
-//            String basketItemName = addItem.getBasketItemName();
-//            assertTrue(basketItemName.contains(itemName));
-//
-//            System.out.println(addItem.getItemName());
-//            System.out.println(addItem.getBasketItemName());
-//        });
-//
-//    }
+    @DisplayName("4. Добавление 3-го товара в корзину")
+    @Test
+    void test04() {
+        step("Добавление через каталог 3-го товара в корзину", () -> {
+            refresh();
+            addItem
+                    .getCatalogy()
+                    .getCategory3()
+                    .getItem3()
+                    .addItemToBasket()
+                    .nameItem3()
+                    .openBasketWithOurGoods()
+                    .nameBasketItem3();
+        });
+        step("Проверка названия товара 3", () -> {
+            String item3Name = addItem.getItem3Name();
+            String basketItemName = addItem.getBasketNameItem3();
+            assertTrue(item3Name.contains(basketItemName));
+
+            System.out.println(addItem.getItem3Name());
+            System.out.println(addItem.getBasketNameItem3());
+        });
+
+    }
 //    @DisplayName("4. Проверка по кол-ву товара в корзине")
 //    @Test
 //    void test04() {
