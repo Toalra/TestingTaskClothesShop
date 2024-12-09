@@ -11,7 +11,6 @@ public class TextBoxPage {
     String itemName;
     String itemBasketName;
     String sizeBasketItem1;
-    String sizeItem1;
     String item2BasketName;
     String item2Name;
     String sizeBasketItem2;
@@ -48,23 +47,16 @@ public class TextBoxPage {
         checkCountItems = $(".toolbar-item__bage"),
         checkCountItemsBasket = $(".basket-summary__btn-more").$(".js-more"),
     //Размеры
-        sizeItem = $("[data-selector='options-group:root']")
-            .$(".options-group__list").$(".options-group__list-item", 2),//размер в корзине
         checkInBasketSizeItem1 = $(".group-items__content") //размер 1-го товара в корзине
                     .$(".cart-item-default", 0)
-                    .$(".cart-item-default__area-content", 1)
-                    .$(".cart-item-default__props", 0)
-                    .$("li", 0),
+                    .$(".cart-item-default__area-content")
+                    .$(".cart-item-default__props")
+                    .$(".cart-item-default__props-item", 0),
         checkInBasketSizeItem2 = $(".group-items__content") //размер 2-го товара в корзине
                 .$(".cart-item-default", 1)
-                .$(".cart-item-default__area-content", 1)
-                .$(".cart-item-default__props", 0)
-                .$("li", 0),
-        checkInBasketSizeItem3 = $(".group-items__content") //размер 3-го товара в корзине
-                .$(".cart-item-default", 2)
-                .$(".cart-item-default__area-content", 1)
-                .$(".cart-item-default__props", 0)
-                .$("li", 0),
+                .$(".cart-item-default__area-content")
+                .$(".cart-item-default__props")
+                .$(".cart-item-default__props-item", 0),
 
     //Цвет
         checkColorItem1 = $(".group-items__content") //цвет 1-го товара в корзине
@@ -172,13 +164,6 @@ public class TextBoxPage {
     }
 
     //Размер 1-го товара
-    public TextBoxPage parsSizeItem1() {
-        sizeItem1 = selectSizeItem1.getText();
-        return this;
-    }
-    public String getSizeItem1() {
-        return sizeItem1;
-    }
     public TextBoxPage parsSizeBasketItem1() {
         sizeBasketItem1 = checkInBasketSizeItem1.getText();
         return this;
@@ -204,6 +189,14 @@ public class TextBoxPage {
     }
     public String getBasketNameItem2() {
         return item2BasketName;
+    }
+    //Размер 2-го товара
+    public TextBoxPage parsSizeBasketItem2() {
+        sizeBasketItem2 = checkInBasketSizeItem2.getText();
+        return this;
+    }
+    public String getSizeBasketItem2() {
+        return sizeBasketItem2;
     }
 
 //--------------------------------------------------------------
