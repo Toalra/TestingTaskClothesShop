@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class AddItemsToBasketPageObject extends TestBase{
     TextBoxPage openWebPage = new TextBoxPage();
-    TextBoxPage addItem = new TextBoxPage();
+    TextBoxPage items = new TextBoxPage();
 
     @DisplayName("1. Открытие Web-сайта")
     @Test
@@ -24,24 +24,33 @@ public class AddItemsToBasketPageObject extends TestBase{
     @Test
     void test02() {
         step("Добавление через каталог 1-го товара в корзину", () -> {
-            addItem
+            items
                     .getCatalogy()
                     .getCategory1()
                     .getItem1()
-                    .getSizeItem1()
+                    .clickSizeItem1()
                     .addItemToBasket()
                     .nameItem1()
+                    .parsSizeItem1()
                     .openBasketWithOurGoods()
                     .nameBasketItem1();
         });
         step("Проверка названия товаров", () -> {
 
-            String itemName = addItem.getItemName();
-            String basketItemName = addItem.getBasketNameItem1();
+            String itemName = items.getItemName();
+            String basketItemName = items.getBasketNameItem1();
             assertTrue(itemName.contains(basketItemName));
 
-            System.out.println(addItem.getItemName());
-            System.out.println(addItem.getBasketNameItem1());
+            System.out.println(items.getItemName());
+            System.out.println(items.getBasketNameItem1());
+        });
+        step("Проверка размера 1-го товара", () -> {
+            String itemSize = items.getSizeItem1();
+            String basketItemSize = items.getSizeBasketItem1();
+            assertTrue(itemSize.contains(basketItemSize));
+
+            System.out.println(items.getSizeItem1());
+            System.out.println(items.getSizeBasketItem1());
         });
 
     }
@@ -50,7 +59,7 @@ public class AddItemsToBasketPageObject extends TestBase{
     void test03(){
         step("Добавление через каталог 2-го товара в корзину", () -> {
             refresh();
-            addItem
+            items
                     .getCatalogy()
                     .getGategory2()
                     .getItem2()
@@ -61,23 +70,22 @@ public class AddItemsToBasketPageObject extends TestBase{
                     .nameBasketItem2();
         });
         step("Проверка названия товара 2", () -> {
-            String item2Name = addItem.getItem2Name();
-            String basketItem2Name = addItem.getBasketNameItem2();
+            String item2Name = items.getItem2Name();
+            String basketItem2Name = items.getBasketNameItem2();
             assertTrue(item2Name.contains(basketItem2Name));
 
-            System.out.println(addItem.getItem2Name());
-            System.out.println(addItem.getBasketNameItem2());
+            System.out.println(items.getItem2Name());
+            System.out.println(items.getBasketNameItem2());
         });
 
     }
-
 
     @DisplayName("4. Добавление 3-го товара в корзину")
     @Test
     void test04() {
         step("Добавление через каталог 3-го товара в корзину", () -> {
             refresh();
-            addItem
+            items
                     .getCatalogy()
                     .getCategory3()
                     .getItem3()
@@ -87,26 +95,32 @@ public class AddItemsToBasketPageObject extends TestBase{
                     .nameBasketItem3();
         });
         step("Проверка названия товара 3", () -> {
-            String item3Name = addItem.getItem3Name();
-            String basketItemName = addItem.getBasketNameItem3();
+            String item3Name = items.getItem3Name();
+            String basketItemName = items.getBasketNameItem3();
             assertTrue(item3Name.contains(basketItemName));
 
-            System.out.println(addItem.getItem3Name());
-            System.out.println(addItem.getBasketNameItem3());
+            System.out.println(items.getItem3Name());
+            System.out.println(items.getBasketNameItem3());
         });
 
     }
-//    @DisplayName("4. Проверка по кол-ву товара в корзине")
-//    @Test
-//    void test04() {
-//    step("Проверка количества товара в корзине", () -> {
-//        assertEquals(
-//                itemsInBasket.countItems(),
-//                itemsInBasket.countItemsBasket());
-//        System.out.print(itemsInBasket.countItems());
-//        System.out.print(itemsInBasket.countItemsBasket());
-//    });
-//    }
+    @DisplayName("5. Проверка по кол-ву товара в корзине")
+    @Test
+    void test05() {
+    step("Парсинг кол-ва товара", () -> {
+            items
+                    .countItems()
+                    .countItemsBasket();
+        });
+    step("Проверка количества товара в корзине", () -> {
+        String itemsCount = items.getCountItems();
+        String itemsBasketCount = items.getItemsBasketCount();
+        assertTrue(itemsBasketCount.contains(itemsCount));
+
+        System.out.print(items.getCountItems());
+        System.out.print(items.getItemsBasketCount());
+    });
+    }
 //    @DisplayName("5. Проверка по названию")
 //    @Test
 //    void test05() {

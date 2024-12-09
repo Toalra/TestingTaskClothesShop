@@ -10,10 +10,18 @@ import static org.openqa.selenium.devtools.v116.network.Network.clearBrowserCook
 public class TextBoxPage {
     String itemName;
     String itemBasketName;
+    String sizeBasketItem1;
+    String sizeItem1;
     String item2BasketName;
     String item2Name;
+    String sizeBasketItem2;
+    String sizeItem2;
     String item3Name;
     String item3BasketName;
+    String sizeBasketItem3;
+    String sizeItem3;
+    String itemsCount;
+    String itemsBasketCount;
     SelenideElement
         catalogy = $(".container mega-burger__inner"),
         selectCatalogy = $("#rubrics-toggle"),
@@ -40,14 +48,38 @@ public class TextBoxPage {
         checkCountItems = $(".toolbar-item__bage"),
         checkCountItemsBasket = $(".basket-summary__btn-more").$(".js-more"),
     //Размеры
-        sizeItem1 = $("[data-selector='options-group:root']")
+        sizeItem = $("[data-selector='options-group:root']")
             .$(".options-group__list").$(".options-group__list-item", 2),//размер в корзине
-        checkInBasketSizeItem1 = $(".group-items__content")
+        checkInBasketSizeItem1 = $(".group-items__content") //размер 1-го товара в корзине
                     .$(".cart-item-default", 0)
                     .$(".cart-item-default__area-content", 1)
                     .$(".cart-item-default__props", 0)
                     .$("li", 0),
-        checkInBasketSizeItem2 = $(".group-items__content"),
+        checkInBasketSizeItem2 = $(".group-items__content") //размер 2-го товара в корзине
+                .$(".cart-item-default", 1)
+                .$(".cart-item-default__area-content", 1)
+                .$(".cart-item-default__props", 0)
+                .$("li", 0),
+        checkInBasketSizeItem3 = $(".group-items__content") //размер 3-го товара в корзине
+                .$(".cart-item-default", 2)
+                .$(".cart-item-default__area-content", 1)
+                .$(".cart-item-default__props", 0)
+                .$("li", 0),
+
+    //Цвет
+        checkColorItem1 = $(".group-items__content") //цвет 1-го товара в корзине
+            .$(".cart-item-default", 0)
+            .$(".cart-item-default__area-content", 1)
+            .$(".cart-item-default__props", 1),
+        checkColorItem2 = $(".group-items__content") //цвет 2-го товара в корзине
+            .$(".cart-item-default", 1)
+            .$(".cart-item-default__area-content", 1)
+            .$(".cart-item-default__props", 1),
+        checkColorItem3 = $(".group-items__content") //цвет 3-го товара в корзине
+            .$(".cart-item-default", 2)
+            .$(".cart-item-default__area-content", 1)
+            .$(".cart-item-default__props", 1),
+
 
     //Названия товаров
         findTitleOfItem = $("#name"), //название на товаре
@@ -82,7 +114,7 @@ public class TextBoxPage {
         selectItem1.click();
         return this;
     }
-    public TextBoxPage getSizeItem1() {
+    public TextBoxPage clickSizeItem1() {
         selectSizeItem1.click();
         return this;
     }
@@ -121,18 +153,6 @@ public class TextBoxPage {
     }
 
     //Проверки
-    public TextBoxPage countItems() {
-        checkCountItems.getText();
-        return this;
-    }
-    public TextBoxPage countItemsBasket() {
-        checkCountItemsBasket.getText();
-        return this;
-    }
-    public TextBoxPage checkSizeItem1() {
-        checkInBasketSizeItem1.getText();
-        return this;
-    }
     @DisplayName("Парсинг названия 1-го товара")
     public TextBoxPage nameItem1() {
         itemName = findTitleOfItem.getText();
@@ -151,7 +171,23 @@ public class TextBoxPage {
         return itemBasketName;
     }
 
+    //Размер 1-го товара
+    public TextBoxPage parsSizeItem1() {
+        sizeItem1 = selectSizeItem1.getText();
+        return this;
+    }
+    public String getSizeItem1() {
+        return sizeItem1;
+    }
+    public TextBoxPage parsSizeBasketItem1() {
+        sizeBasketItem1 = checkInBasketSizeItem1.getText();
+        return this;
+    }
+    public String getSizeBasketItem1() {
+        return sizeBasketItem1;
+    }
 
+//------------------------------------------------------------------------------------
     @DisplayName("Парсинг названия 2-го товара")
     public TextBoxPage nameItem2() {
         item2Name = findTitleOfItem.getText();
@@ -170,7 +206,7 @@ public class TextBoxPage {
         return item2BasketName;
     }
 
-
+//--------------------------------------------------------------
     @DisplayName("Парсинг названия 3-го товара")
     public TextBoxPage nameItem3() {
         item3Name = findTitleOfItem.getText();
@@ -179,7 +215,6 @@ public class TextBoxPage {
     public String getItem3Name() {
         return item3Name;
     }
-
     @DisplayName("Парсинг названия 3-го товара из корзины")
     public TextBoxPage nameBasketItem3() {
         item3BasketName = checkTitleOfItem3.getText();
@@ -190,5 +225,21 @@ public class TextBoxPage {
         return item3BasketName;
     }
 
+    @DisplayName("Парсинг кол-ва товара")
+    public TextBoxPage countItems() {
+        itemsCount = checkCountItems.getText();
+        return this;
+    }
+    public String getCountItems() {
+        return itemsCount;
+    }
+    @DisplayName("Парсинг кол-ва товара в корзине")
+    public TextBoxPage countItemsBasket() {
+        itemsBasketCount = checkCountItemsBasket.getText();
+        return this;
+    }
+    public String getItemsBasketCount() {
+        return itemsBasketCount;
+    }
 
 }
