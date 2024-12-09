@@ -19,7 +19,7 @@ public class TextBoxPage {
         selectCategory1 = $("[data-idx='0']"), //Мужчины
         selectItem1 = $("div .rubrics-items-grid").$(".product-listing-card", 3), //выбор товара
         selectSizeItem1 = $("[data-selector='options-group:root']")
-                .$(".options-group__list").$(".options-group__list-item", 2), //размер
+                .$(".options-group__list").$(".options-group__list-item", 0), //размер
         addToBasket = $("[title='Добавить в корзину']"),
 
     //2 товар
@@ -159,6 +159,7 @@ public class TextBoxPage {
     @DisplayName("Парсинг названия 2-го товара в корзине")
     public TextBoxPage nameBasketItem2() {
         item2BasketName = checkTitleOfItem2.getText();
+        item2BasketName.equals(item2Name);
         return this;
     }
     public String getBasketNameItem2() {
