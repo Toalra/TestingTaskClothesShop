@@ -18,6 +18,7 @@ public class AddItemsToBasketPageObject extends TestBase{
         step("Открытие сайта", () -> {
             openWebPage
                     .openWebSite();
+            refresh();
         });
     }
     @DisplayName("2. Добавление 1-го товара в корзину")
@@ -54,14 +55,7 @@ public class AddItemsToBasketPageObject extends TestBase{
         });
 
     }
-//    @DisplayName("Проверка размера 1-го товара")
-//    @Test
-//    void test03() {
-//        items
-//                .parsSizeBasketItem1();
-//
-//
-//    }
+
     @DisplayName("3. Добавление 2-го товара в корзину")
     @Test
     void test04(){
@@ -87,11 +81,11 @@ public class AddItemsToBasketPageObject extends TestBase{
             System.out.println(items.getBasketNameItem2());
         });
         step("Проверка размера 1-го товара", () -> {
-            String item2Size = items.getItemName();
+            String item2Size = items.getItem2Name();
             String basketItemSize = items.getSizeBasketItem2();
             assertTrue(item2Size.contains(basketItemSize));
 
-            System.out.println(items.getItemName());
+            System.out.println(items.getItem2Name());
             System.out.println(items.getSizeBasketItem2());
         });
     }
