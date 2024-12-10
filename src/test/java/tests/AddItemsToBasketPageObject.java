@@ -127,8 +127,8 @@ public class AddItemsToBasketPageObject extends TestBase{
         String itemsBasketCount = items.getItemsBasketCount();
         assertTrue(itemsBasketCount.contains(itemsCount));
 
-        System.out.print(items.getCountItems());
-        System.out.print(items.getItemsBasketCount());
+        System.out.println(items.getCountItems());
+        System.out.println(items.getItemsBasketCount());
     });
     }
 //    @DisplayName("5. Проверка по названию")
