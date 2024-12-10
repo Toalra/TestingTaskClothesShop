@@ -94,16 +94,17 @@ public class TextBoxPage {
 
     //Характеристики
 
-            specsItemColor = $(".card-product-layout__block-parameters")
+            specsItemColor = $(".card-product-layout__content-col-tabs")
+                    .$(".card-product-layout__block-parameters")
                     .$(".parameters-list-group", 2)
                     .$(".parameters-list")
-                    .$("parameters-list__item")
+                    .$(".parameters-list__item")
                     .$(".parameters-list__detail"),
             specsItemSize = $(".card-product-layout__content-col-tabs")
                     .$(".card-product-layout__block-parameters")
                     .$(".parameters-list-group", 1)
                     .$(".parameters-list")
-                    .$("parameters-list__item")
+                    .$(".parameters-list__item")
                     .$(".parameters-list__detail"),
             specsItemBrend = $(".card-product-layout__content-col-tabs")
                     .$(".card-product-layout__block-parameters")

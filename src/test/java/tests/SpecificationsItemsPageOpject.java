@@ -25,7 +25,7 @@ public class SpecificationsItemsPageOpject extends TestBase {
     @DisplayName("1. Открытие карточки 1-го товара")
     @Test
     void test02() {
-        step("Отобржение карточки 1-го товара", () -> {
+        step("Отображение карточки 1-го товара", () -> {
             specsItems
                     .getCatalogy()
                     .getCategory1()
@@ -36,8 +36,7 @@ public class SpecificationsItemsPageOpject extends TestBase {
                     .parsSpecsSize()
                     .parsSpecsBrend();
         });
-        step("Проверка характеристики цвета 1-го товара", () -> {
-
+        step("Проверка характеристики цвета товара", () -> {
             String itemColor = specsItems.getItemName();
             String itemSpecColor = specsItems.getSpecColor();
             assertTrue(itemColor.contains(itemSpecColor));
@@ -46,23 +45,21 @@ public class SpecificationsItemsPageOpject extends TestBase {
             System.out.println(specsItems.getSpecColor());
         });
 
-        step("Проверка характеристики размера 1-го товара", () -> {
-
-            String itemSize = specsItems.getItemName();
-            String itemSpecSize = specsItems.getSpecSize();
-            assertTrue(itemSize.contains(itemSpecSize));
-
-            System.out.println(specsItems.getItemName());
-            System.out.println(specsItems.getSpecSize());
-        });
-        step("Проверка характеристики бренда 1-го товара", () -> {
-
+        step("Проверка характеристики бренда товара", () -> {
             String itemBrend = specsItems.getItemName();
             String itemSpecBrend = specsItems.getSpecBrend();
             assertTrue(itemBrend.contains(itemSpecBrend));
 
             System.out.println(specsItems.getItemName());
             System.out.println(specsItems.getSpecBrend());
+        });
+        step("Проверка характеристики размера товара", () -> {
+            String itemSize = specsItems.getItemName();
+            String itemSpecSize = specsItems.getSpecSize();
+            assertTrue(itemSize.contains(itemSpecSize));
+
+            System.out.println(specsItems.getItemName());
+            System.out.println(specsItems.getSpecSize());
         });
     }
 }
