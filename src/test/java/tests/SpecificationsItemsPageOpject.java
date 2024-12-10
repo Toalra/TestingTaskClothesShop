@@ -33,7 +33,8 @@ public class SpecificationsItemsPageOpject extends TestBase {
                     .nameItem1()
                     .scrollSpec()
                     .parsSpecsColor()
-                    .parsSpecsSize();
+                    .parsSpecsSize()
+                    .parsSpecsBrend();
         });
         step("Проверка характеристики цвета 1-го товара", () -> {
 
@@ -53,6 +54,15 @@ public class SpecificationsItemsPageOpject extends TestBase {
 
             System.out.println(specsItems.getItemName());
             System.out.println(specsItems.getSpecSize());
+        });
+        step("Проверка характеристики бренда 1-го товара", () -> {
+
+            String itemBrend = specsItems.getItemName();
+            String itemSpecBrend = specsItems.getSpecBrend();
+            assertTrue(itemBrend.contains(itemSpecBrend));
+
+            System.out.println(specsItems.getItemName());
+            System.out.println(specsItems.getSpecBrend());
         });
     }
 }

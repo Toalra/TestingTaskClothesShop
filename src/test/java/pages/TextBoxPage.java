@@ -233,11 +233,20 @@ public class TextBoxPage {
 
     @DisplayName("Парсинг характеристик Размер")
     public TextBoxPage parsSpecsSize() {
-        itemSpecColor = specsItemSize.getText();
+        itemSpecSize = specsItemSize.getText();
         return this;
     }
     public String getSpecSize() {
-        return itemSpecColor;
+        return itemSpecSize;
+    }
+
+    @DisplayName("Парсинг характеристик Бренд")
+    public TextBoxPage parsSpecsBrend() {
+        itemSpecBrend = specsItemBrend.getText();
+        return this;
+    }
+    public String getSpecBrend() {
+        return itemSpecBrend;
     }
 
 
