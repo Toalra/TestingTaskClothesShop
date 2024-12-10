@@ -14,14 +14,17 @@ public class TextBoxPage {
     String item2BasketName;
     String item2Name;
     String sizeBasketItem2;
-    String sizeItem2;
     String item3Name;
     String item3BasketName;
-    String sizeBasketItem3;
-    String sizeItem3;
     String item3BasketColor;
     String itemsCount;
     String itemsBasketCount;
+    String price1;
+    String price2;
+    String price3;
+    String priceBasketItem1;
+    String priceBasketItem2;
+    String priceBasketItem3;
     SelenideElement
         catalogy = $(".container mega-burger__inner"),
         selectCatalogy = $("#rubrics-toggle"),
@@ -60,14 +63,6 @@ public class TextBoxPage {
                 .$(".cart-item-default__props-item", 0),
 
     //Цвет
-        checkColorItem1 = $(".group-items__content") //цвет 1-го товара в корзине
-            .$(".cart-item-default", 0)
-            .$(".cart-item-default__area-content", 1)
-            .$(".cart-item-default__props", 1),
-        checkColorItem2 = $(".group-items__content") //цвет 2-го товара в корзине
-            .$(".cart-item-default", 1)
-            .$(".cart-item-default__area-content", 1)
-            .$(".cart-item-default__props", 1),
         checkColorItem3 = $(".group-items__content") //цвет 3-го товара в корзине
             .$(".cart-item-default").$(".cart-item-default__area-content")
             .$(".cart-item-default__props"),
@@ -77,11 +72,22 @@ public class TextBoxPage {
         findTitleOfItem = $("#name"), //название на товаре
         checkTitleOfItem1 = $(".js-items").$(".cart-item-default", 0)
              .$(".cart-item-default__title"), //название 1-го в корзине
-        checkTitleOfItem2 = $(".js-items").$(".cart-item-default", 1)
+        checkTitleOfItem2 = $(".js-items").$(".cart-item-default", 0)
              .$(".cart-item-default__title"), //название 2-го в корзине
         checkTitleOfItem3 = $(".js-groups").$(".group-items", 0)
               .$(".group-items__content").$(".cart-item-default")
-              .$(".cart-item-default__area-content").$(".cart-item-default__title");
+              .$(".cart-item-default__area-content").$(".cart-item-default__title"),
+    //Цена
+        checkPrice = $(".price__regular"),
+        checkBasketPriceItem1 = $(".basket__block-groups").$(".group-items", 1)
+                .$(".group-items__content").$(".cart-item-default", 0)
+                .$(".cart-item-default__area-price").$(".cart-item-default__price"),
+        checkBasketPriceItem2 = $(".basket__block-groups").$(".group-items", 1)
+                .$(".group-items__content").$(".cart-item-default", 1)
+                .$(".cart-item-default__area-price").$(".cart-item-default__price"),
+        checkBasketPriceItem3 = $(".basket__block-groups").$(".group-items", 0)
+                .$(".group-items__content").$(".cart-item-default")
+                .$(".cart-item-default__area-price");
 
 
     public TextBoxPage openWebSite() {
@@ -115,6 +121,7 @@ public class TextBoxPage {
         addToBasket.click();
         return this;
     }
+
 
     //2 товар
     public TextBoxPage getGategory2() {
@@ -172,6 +179,22 @@ public class TextBoxPage {
     public String getSizeBasketItem1() {
         return sizeBasketItem1;
     }
+    //Цена
+    public TextBoxPage parsBasketPrizeItem1() {
+        priceBasketItem1 = checkBasketPriceItem1.getText();
+        return this;
+    }
+    public String getPriceBasketItem1() {
+        return priceBasketItem1;
+    }
+    @DisplayName("Парсинг цены 1-го товара")
+    public TextBoxPage priceItem1() {
+        price1 = checkPrice.getText();
+        return this;
+    }
+    public String getPriceItem1() {
+        return price1;
+    }
 
 //------------------------------------------------------------------------------------
     @DisplayName("Парсинг названия 2-го товара")
@@ -199,7 +222,22 @@ public class TextBoxPage {
     public String getSizeBasketItem2() {
         return sizeBasketItem2;
     }
-
+    //Цена
+    @DisplayName("Парсинг цены 2-го товара")
+    public TextBoxPage priceItem2() {
+        price3 = checkPrice.getText();
+        return this;
+    }
+    public String getPriceItem2() {
+        return price3;
+    }
+    public TextBoxPage parsBasketPrizeItem2() {
+        priceBasketItem2 = checkBasketPriceItem2.getText();
+        return this;
+    }
+    public String getPriceBasketItem2() {
+        return priceBasketItem2;
+    }
 //--------------------------------------------------------------
     @DisplayName("Парсинг названия 3-го товара")
     public TextBoxPage nameItem3() {
@@ -226,7 +264,23 @@ public class TextBoxPage {
     public String getItem3Color() {
         return item3BasketColor;
     }
-
+    //Цена
+    @DisplayName("Парсинг цены 3-го товара")
+    public TextBoxPage priceItem3() {
+        price3 = checkPrice.getText();
+        return this;
+    }
+    public String getPriceItem3() {
+        return price3;
+    }
+    public TextBoxPage parsBasketPrizeItem3() {
+        priceBasketItem3 = checkBasketPriceItem3.getText();
+        return this;
+    }
+    public String getPriceBasketItem3() {
+        return priceBasketItem3;
+    }
+//--------------------------------------------------------------------------------------
     @DisplayName("Парсинг кол-ва товара")
     public TextBoxPage countItems() {
         itemsCount = checkCountItems.getText();
@@ -243,5 +297,4 @@ public class TextBoxPage {
     public String getItemsBasketCount() {
         return itemsBasketCount;
     }
-
 }

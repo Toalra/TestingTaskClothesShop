@@ -32,9 +32,11 @@ public class AddItemsToBasketPageObject extends TestBase{
                     .clickSizeItem1()
                     .addItemToBasket()
                     .nameItem1()
+                    .priceItem1()
                     .openBasketWithOurGoods()
                     .nameBasketItem1()
-                    .parsSizeBasketItem1();
+                    .parsSizeBasketItem1()
+                    .parsBasketPrizeItem1();
         });
         step("Проверка названия товаров", () -> {
 
@@ -53,6 +55,14 @@ public class AddItemsToBasketPageObject extends TestBase{
             System.out.println(items.getItemName());
             System.out.println(items.getSizeBasketItem1());
         });
+        step("Проверка цены 1-го товара", () -> {
+            String itemsPrice = items.getPriceItem1();
+            String basketItemsPrice = items.getPriceBasketItem1();
+            assertTrue(itemsPrice.contains(basketItemsPrice));
+
+            System.out.println(items.getPriceItem1());
+            System.out.println(items.getPriceBasketItem1());
+        });
 
     }
 
@@ -68,9 +78,11 @@ public class AddItemsToBasketPageObject extends TestBase{
                     .getSizeItem2()
                     .addItemToBasket()
                     .nameItem2()
+                    .priceItem2()
                     .openBasketWithOurGoods()
                     .nameBasketItem2()
-                    .parsSizeBasketItem2();
+                    .parsSizeBasketItem2()
+                    .parsBasketPrizeItem2();
         });
         step("Проверка названия товара 2", () -> {
             String item2Name = items.getItem2Name();
@@ -80,13 +92,21 @@ public class AddItemsToBasketPageObject extends TestBase{
             System.out.println(items.getItem2Name());
             System.out.println(items.getBasketNameItem2());
         });
-        step("Проверка размера 1-го товара", () -> {
+        step("Проверка размера 2-го товара", () -> {
             String item2Size = items.getItem2Name();
             String basketItemSize = items.getSizeBasketItem2();
             assertTrue(item2Size.contains(basketItemSize));
 
             System.out.println(items.getItem2Name());
             System.out.println(items.getSizeBasketItem2());
+        });
+        step("Проверка цены 2-го товара", () -> {
+            String itemsPrice = items.getPriceItem2();
+            String basketItemsPrice = items.getPriceBasketItem2();
+            assertTrue(itemsPrice.contains(basketItemsPrice));
+
+            System.out.println(items.getPriceItem2());
+            System.out.println(items.getPriceBasketItem2());
         });
     }
 
@@ -101,9 +121,11 @@ public class AddItemsToBasketPageObject extends TestBase{
                     .getItem3()
                     .addItemToBasket()
                     .nameItem3()
+                    .priceItem3()
                     .openBasketWithOurGoods()
                     .nameBasketItem3()
-                    .colorBasketItem3();
+                    .colorBasketItem3()
+                    .parsBasketPrizeItem3();
         });
         step("Проверка названия товара 3", () -> {
             String item3Name = items.getItem3Name();
@@ -120,6 +142,14 @@ public class AddItemsToBasketPageObject extends TestBase{
 
             System.out.println(items.getItem3Name());
             System.out.println(items.getItem3Color());
+        });
+        step("Проверка цены 3-го товара", () -> {
+            String itemsPrice = items.getPriceItem3();
+            String basketItemsPrice = items.getPriceBasketItem3();
+            assertTrue(itemsPrice.contains(basketItemsPrice));
+
+            System.out.println(items.getPriceItem3());
+            System.out.println(items.getPriceBasketItem3());
         });
 
     }
