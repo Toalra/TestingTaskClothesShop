@@ -94,8 +94,7 @@ public class TextBoxPage {
 
     //Характеристики
 
-            specsItemColor = $(".card-product-layout__content-col-tabs")
-                    .$(".card-product-layout__block-parameters")
+            specsItemColor = $(".card-product-layout__block-parameters")
                     .$(".parameters-list-group", 2)
                     .$(".parameters-list")
                     .$("parameters-list__item")
@@ -219,7 +218,7 @@ public class TextBoxPage {
     public String getPriceItem1() {
         return price1;
     }
-    @DisplayName("Парсинг характеристик")
+    @DisplayName("Парсинг характеристик Цвет")
     public TextBoxPage parsSpecsColor() {
         itemSpecColor = specsItemColor.getText();
         return this;
@@ -231,6 +230,16 @@ public class TextBoxPage {
         scrollElement.scrollTo();
         return this;
     }
+
+    @DisplayName("Парсинг характеристик Размер")
+    public TextBoxPage parsSpecsSize() {
+        itemSpecColor = specsItemSize.getText();
+        return this;
+    }
+    public String getSpecSize() {
+        return itemSpecColor;
+    }
+
 
 //------------------------------------------------------------------------------------
     @DisplayName("Парсинг названия 2-го товара")
