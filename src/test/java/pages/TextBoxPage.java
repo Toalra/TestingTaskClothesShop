@@ -19,6 +19,7 @@ public class TextBoxPage {
     String item3BasketName;
     String sizeBasketItem3;
     String sizeItem3;
+    String item3BasketColor;
     String itemsCount;
     String itemsBasketCount;
     SelenideElement
@@ -68,19 +69,19 @@ public class TextBoxPage {
             .$(".cart-item-default__area-content", 1)
             .$(".cart-item-default__props", 1),
         checkColorItem3 = $(".group-items__content") //цвет 3-го товара в корзине
-            .$(".cart-item-default", 2)
-            .$(".cart-item-default__area-content", 1)
-            .$(".cart-item-default__props", 1),
+            .$(".cart-item-default").$(".cart-item-default__area-content")
+            .$(".cart-item-default__props"),
 
 
     //Названия товаров
         findTitleOfItem = $("#name"), //название на товаре
         checkTitleOfItem1 = $(".js-items").$(".cart-item-default", 0)
-                .$(".cart-item-default__title"), //название 1-го в корзине
+             .$(".cart-item-default__title"), //название 1-го в корзине
         checkTitleOfItem2 = $(".js-items").$(".cart-item-default", 1)
-                    .$(".cart-item-default__title"), //название 2-го в корзине
-        checkTitleOfItem3 = $(".js-items").$(".cart-item-default", 2)
-                    .$(".cart-item-default__title");
+             .$(".cart-item-default__title"), //название 2-го в корзине
+        checkTitleOfItem3 = $(".js-groups").$(".group-items", 0)
+              .$(".group-items__content").$(".cart-item-default")
+              .$(".cart-item-default__area-content").$(".cart-item-default__title");
 
 
     public TextBoxPage openWebSite() {
@@ -211,11 +212,19 @@ public class TextBoxPage {
     @DisplayName("Парсинг названия 3-го товара из корзины")
     public TextBoxPage nameBasketItem3() {
         item3BasketName = checkTitleOfItem3.getText();
-        item3BasketName.equals(item3Name);
         return this;
     }
     public String getBasketNameItem3() {
         return item3BasketName;
+    }
+
+    @DisplayName("Парсинг цвета 3-го товара из корзины")
+    public TextBoxPage colorBasketItem3() {
+        item3BasketColor = checkColorItem3.getText();
+        return this;
+    }
+    public String getItem3Color() {
+        return item3BasketColor;
     }
 
     @DisplayName("Парсинг кол-ва товара")

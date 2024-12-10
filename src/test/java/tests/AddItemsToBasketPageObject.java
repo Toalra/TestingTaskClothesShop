@@ -102,7 +102,8 @@ public class AddItemsToBasketPageObject extends TestBase{
                     .addItemToBasket()
                     .nameItem3()
                     .openBasketWithOurGoods()
-                    .nameBasketItem3();
+                    .nameBasketItem3()
+                    .colorBasketItem3();
         });
         step("Проверка названия товара 3", () -> {
             String item3Name = items.getItem3Name();
@@ -111,6 +112,14 @@ public class AddItemsToBasketPageObject extends TestBase{
 
             System.out.println(items.getItem3Name());
             System.out.println(items.getBasketNameItem3());
+        });
+        step("Проверка по цвету товара 3", () -> {
+            String item3Color = items.getItem3Name();
+            String basketItem3Color = items.getItem3Color();
+            assertTrue(item3Color.contains(basketItem3Color));
+
+            System.out.println(items.getItem3Name());
+            System.out.println(items.getItem3Color());
         });
 
     }
