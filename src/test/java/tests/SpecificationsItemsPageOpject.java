@@ -21,11 +21,10 @@ public class SpecificationsItemsPageOpject extends TestBase {
             refresh();
         });
     }
-
-    @DisplayName("1. Открытие карточки 1-го товара")
+    @DisplayName("Открытие карточки товара")
     @Test
     void test02() {
-        step("Отображение карточки 1-го товара", () -> {
+        step("Отображение карточки товара", () -> {
             specsItems
                     .getCatalogy()
                     .getCategory1()

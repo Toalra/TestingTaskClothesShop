@@ -32,55 +32,54 @@ public class TextBoxPage {
             catalogy = $(".container mega-burger__inner"),
             selectCatalogy = $("#rubrics-toggle"),
     //1 товар
-            selectCategory1 = $("[data-idx='0']"), //Мужчины
+            selectCategory1 = $("[data-idx='0']"),
             selectItem1 = $("div .rubrics-items-grid").$(".product-listing-card", 3), //выбор товара
             selectSizeItem1 = $("[data-selector='options-group:root']")
                     .$(".options-group__list").$(".options-group__list-item", 0), //размер
             addToBasket = $("[title='Добавить в корзину']"),
 
     //2 товар
-            selectCategory2 = $("[data-idx='1']"), //Женщины
+            selectCategory2 = $("[data-idx='1']"),
             selectItem2 = $("div .rubrics-items-grid").$(".product-listing-card", 2), //выбор товара
             selectSizeItem2 = $("[data-selector='options-group:root']")
                     .$(".options-group__list").$(".options-group__list-item", 1), //размер,
 
     //3 товар
-            selectCategory3 = $("[data-idx='4']"), //Аксессуары
+            selectCategory3 = $("[data-idx='4']"),
             selectItem3 = $("div .rubrics-items-grid").$(".product-listing-card", 2), //выбор товара
             openBasket = $("[data-selector='basket-desktop']"),
 
-    //ПРОВЕРКИ
-    //Количество
             checkCountItems = $(".toolbar-item__bage"),
             checkCountItemsBasket = $(".basket-summary__btn-more").$(".js-more"),
-    //Размеры
-            checkInBasketSizeItem1 = $(".group-items__content") //размер 1-го товара в корзине
+
+            checkInBasketSizeItem1 = $(".group-items__content")
                     .$(".cart-item-default", 0)
                     .$(".cart-item-default__area-content")
                     .$(".cart-item-default__props")
                     .$(".cart-item-default__props-item", 0),
-            checkInBasketSizeItem2 = $(".group-items__content") //размер 2-го товара в корзине
+            checkInBasketSizeItem2 = $(".group-items__content")
                     .$(".cart-item-default", 1)
                     .$(".cart-item-default__area-content")
                     .$(".cart-item-default__props")
                     .$(".cart-item-default__props-item", 0),
 
-    //Цвет
-            checkColorItem3 = $(".group-items__content") //цвет 3-го товара в корзине
+
+            checkColorItem3 = $(".group-items__content")
                     .$(".cart-item-default").$(".cart-item-default__area-content")
                     .$(".cart-item-default__props"),
 
 
-    //Названия товаров
-            findTitleOfItem = $("#name"), //название на товаре
+
+            findTitleOfItem = $("#name"),
             checkTitleOfItem1 = $(".js-items").$(".cart-item-default", 0)
-                     .$(".cart-item-default__title"), //название 1-го в корзине
+                     .$(".cart-item-default__title"),
             checkTitleOfItem2 = $(".js-items").$(".cart-item-default", 0)
-                     .$(".cart-item-default__title"), //название 2-го в корзине
+                     .$(".cart-item-default__title"),
             checkTitleOfItem3 = $(".js-groups").$(".group-items", 0)
                      .$(".group-items__content").$(".cart-item-default")
-                     .$(".cart-item-default__area-content").$(".cart-item-default__title"),
-    //Цена
+                     .$(".cart-item-default__area-content")
+                     .$(".cart-item-default__title"),
+
             checkPrice = $(".price__regular"),
             checkBasketPriceItem1 = $(".basket__block-groups").$(".group-items", 1)
                     .$(".group-items__content").$(".cart-item-default", 0)
@@ -92,7 +91,7 @@ public class TextBoxPage {
                     .$(".group-items__content").$(".cart-item-default")
                     .$(".cart-item-default__area-price"),
 
-    //Характеристики
+
 
             specsItemColor = $(".card-product-layout__content-col-tabs")
                     .$(".card-product-layout__block-parameters")
@@ -128,7 +127,7 @@ public class TextBoxPage {
         return this;
     }
 
-    //1 товар
+    @DisplayName("1 товар")
     public TextBoxPage getCategory1() {
         selectCategory1.click();
         return this;
@@ -147,7 +146,7 @@ public class TextBoxPage {
     }
 
 
-    //2 товар
+    @DisplayName("2 товар")
     public TextBoxPage getGategory2() {
         selectCategory2.click();
         return this;
@@ -161,7 +160,7 @@ public class TextBoxPage {
         return this;
     }
 
-    //3 товар
+    @DisplayName("3 товар")
     public TextBoxPage getCategory3() {
         selectCategory3.click();
         return this;
@@ -170,14 +169,12 @@ public class TextBoxPage {
         selectItem3.click();
         return this;
     }
-    @DisplayName("Открываем корзину с нашими товарами")
     public TextBoxPage openBasketWithOurGoods() {
         openBasket.click();
         return this;
     }
 
-    //Проверки
-    @DisplayName("Парсинг названия 1-го товара")
+    @DisplayName("Парсинги 1 товара")
     public TextBoxPage nameItem1() {
         itemName = findTitleOfItem.getText();
         return this;
@@ -185,7 +182,6 @@ public class TextBoxPage {
     public String getItemName() {
         return itemName;
     }
-    @DisplayName("Парсинг названия 1-го товара в корзине")
     public TextBoxPage nameBasketItem1() {
         itemBasketName = checkTitleOfItem1.getText();
         itemBasketName.equals(itemName);
@@ -194,8 +190,6 @@ public class TextBoxPage {
     public String getBasketNameItem1() {
         return itemBasketName;
     }
-
-    //Размер 1-го товара
     public TextBoxPage parsSizeBasketItem1() {
         sizeBasketItem1 = checkInBasketSizeItem1.getText();
         return this;
@@ -203,7 +197,6 @@ public class TextBoxPage {
     public String getSizeBasketItem1() {
         return sizeBasketItem1;
     }
-    //Цена
     public TextBoxPage parsBasketPrizeItem1() {
         priceBasketItem1 = checkBasketPriceItem1.getText();
         return this;
@@ -211,7 +204,6 @@ public class TextBoxPage {
     public String getPriceBasketItem1() {
         return priceBasketItem1;
     }
-    @DisplayName("Парсинг цены 1-го товара")
     public TextBoxPage priceItem1() {
         price1 = checkPrice.getText();
         return this;
@@ -219,7 +211,6 @@ public class TextBoxPage {
     public String getPriceItem1() {
         return price1;
     }
-    @DisplayName("Парсинг характеристик Цвет")
     public TextBoxPage parsSpecsColor() {
         itemSpecColor = specsItemColor.getText();
         return this;
@@ -231,8 +222,6 @@ public class TextBoxPage {
         scrollElement.scrollTo();
         return this;
     }
-
-    @DisplayName("Парсинг характеристик Размер")
     public TextBoxPage parsSpecsSize() {
         itemSpecSize = specsItemSize.getText();
         return this;
@@ -240,8 +229,6 @@ public class TextBoxPage {
     public String getSpecSize() {
         return itemSpecSize;
     }
-
-    @DisplayName("Парсинг характеристик Бренд")
     public TextBoxPage parsSpecsBrend() {
         itemSpecBrend = specsItemBrend.getText();
         return this;
@@ -250,9 +237,7 @@ public class TextBoxPage {
         return itemSpecBrend;
     }
 
-
-//------------------------------------------------------------------------------------
-    @DisplayName("Парсинг названия 2-го товара")
+    @DisplayName("Парсинги 2 товара")
     public TextBoxPage nameItem2() {
         item2Name = findTitleOfItem.getText();
         return this;
@@ -260,7 +245,6 @@ public class TextBoxPage {
     public String getItem2Name() {
         return item2Name;
     }
-    @DisplayName("Парсинг названия 2-го товара в корзине")
     public TextBoxPage nameBasketItem2() {
         item2BasketName = checkTitleOfItem2.getText();
         item2BasketName.equals(item2Name);
@@ -269,7 +253,6 @@ public class TextBoxPage {
     public String getBasketNameItem2() {
         return item2BasketName;
     }
-    //Размер 2-го товара
     public TextBoxPage parsSizeBasketItem2() {
         sizeBasketItem2 = checkInBasketSizeItem2.getText();
         return this;
@@ -277,8 +260,6 @@ public class TextBoxPage {
     public String getSizeBasketItem2() {
         return sizeBasketItem2;
     }
-    //Цена
-    @DisplayName("Парсинг цены 2-го товара")
     public TextBoxPage priceItem2() {
         price3 = checkPrice.getText();
         return this;
@@ -293,8 +274,8 @@ public class TextBoxPage {
     public String getPriceBasketItem2() {
         return priceBasketItem2;
     }
-//--------------------------------------------------------------
-    @DisplayName("Парсинг названия 3-го товара")
+
+    @DisplayName("Парсинги 3 товара")
     public TextBoxPage nameItem3() {
         item3Name = findTitleOfItem.getText();
         return this;
@@ -302,7 +283,6 @@ public class TextBoxPage {
     public String getItem3Name() {
         return item3Name;
     }
-    @DisplayName("Парсинг названия 3-го товара из корзины")
     public TextBoxPage nameBasketItem3() {
         item3BasketName = checkTitleOfItem3.getText();
         return this;
@@ -311,7 +291,6 @@ public class TextBoxPage {
         return item3BasketName;
     }
 
-    @DisplayName("Парсинг цвета 3-го товара из корзины")
     public TextBoxPage colorBasketItem3() {
         item3BasketColor = checkColorItem3.getText();
         return this;
@@ -319,8 +298,6 @@ public class TextBoxPage {
     public String getItem3Color() {
         return item3BasketColor;
     }
-    //Цена
-    @DisplayName("Парсинг цены 3-го товара")
     public TextBoxPage priceItem3() {
         price3 = checkPrice.getText();
         return this;
@@ -335,8 +312,8 @@ public class TextBoxPage {
     public String getPriceBasketItem3() {
         return priceBasketItem3;
     }
-//--------------------------------------------------------------------------------------
-    @DisplayName("Парсинг кол-ва товара")
+
+    @DisplayName("Парсинги в корзине")
     public TextBoxPage countItems() {
         itemsCount = checkCountItems.getText();
         return this;
@@ -344,7 +321,6 @@ public class TextBoxPage {
     public String getCountItems() {
         return itemsCount;
     }
-    @DisplayName("Парсинг кол-ва товара в корзине")
     public TextBoxPage countItemsBasket() {
         itemsBasketCount = checkCountItemsBasket.getText();
         return this;
